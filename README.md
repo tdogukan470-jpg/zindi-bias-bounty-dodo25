@@ -189,11 +189,15 @@ Every number in this section is computed from the provided Overture roads (per-t
 
 | File | Purpose |
 |---|---|
-| `k6/main.py`, `k7/main.py` | Kaggle DuckDB kernels: per-(tract, class, route-flag, subclass) lengths `L0`/`L8`/`L25`/`Lbd8` in EPSG:5070 |
-| `feat.py` | Per-tract Overture building/POI aggregates |
-| `probe_solve.py` | Quadratic probe solver, ridge joint fit |
-| `global_refit.py` | Leave-one-out noise model, noise-weighted global re-fit, label-consistency check |
-| `bias_artifacts.py` | Section 8 tables (`bias_artifacts_table.csv`) |
+| `data/rb3.parquet` | Output of the geometry step: per-(tract, class, route-flag, subclass) lengths `L0`/`L8`/`L25`/`Lbd8`. Computed with DuckDB spatial on Kaggle CPU in EPSG:5070: `ST_Length(ST_Intersection(road, tract))`, the same against `ST_Buffer(tract, 8)` and `ST_Buffer(tract, 25)`, and the length within 8 m of the tract boundary |
+| `data/roadfeat2.parquet` | Per-tract road features derived from `rb3` |
+| `code/routes4.py` | Route-tag regex (`routes[].network`) |
+| `code/feat.py`, `code/feat_new.py` | Per-tract Overture building/POI aggregates, strata/ACS joins, kNN coordinates |
+| `code/cands.py` | Candidate probe directions |
+| `code/probe_solve.py` | Quadratic probe solver, ridge joint fit |
+| `code/global_refit.py`, `code/scores.py` | Leave-one-out noise model, noise-weighted global re-fit; table of all scored submissions |
+| `results/bias_artifacts_table.csv` | Section 8 statistics |
+| `submissions/` | Scored files `t18`–`t22` |
 
 **Associated leaderboard submissions:** `t18_global` (0.06599), `t19_global` (0.06581), `t20_global` (0.06552), `t21_global` (0.06490), `t22_global` (0.06476), and the final selections made at close.
 
@@ -201,7 +205,7 @@ Every number in this section is computed from the provided Overture roads (per-t
 
 QGIS screenshots of Maricopa interchanges. They show untagged second carriageways, ramps and frontage roads relative to route-tagged mainlines (OpenStreetMap basemap © OpenStreetMap contributors).
 
-The 200 longest untagged `motorway`/`trunk` segments in Maricopa were each rendered over the OpenStreetMap basemap, with the Overture road layer styled by class. Four representative cases follow. The full set of 200 is in the repository.
+The 200 longest untagged `motorway`/`trunk` segments in Maricopa were each rendered over the OpenStreetMap basemap, with the Overture road layer styled by class. Four representative cases follow (the rest are available on request).
 
 ![Fig. A1 — Freeway-to-freeway interchange (segment 6348, 1.8 km). Ramps and collector lanes branch from the mainline. Overture classes them as `motorway`, while TIGER codes them S1630.](figs/ss_013_fid6348_motorway_1796m.jpg){width=95%}
 
