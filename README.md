@@ -1,8 +1,7 @@
----
-title: "Bias Bounty: Mapping Equity Challenge — Methodology and Bias Discovery"
-subtitle: "Zindi username: dodo25 · Submitted for: Best Bias Discovery and Best Documentation"
-date: "October 2026"
----
+# Bias Bounty: Mapping Equity Challenge — Methodology and Bias Discovery
+
+**Zindi username:** dodo25 · **Submitted for:** Best Bias Discovery and Best Documentation · October 2026 · Full PDF: [`writeup_dodo25.pdf`](writeup_dodo25.pdf)
+
 
 # 0. Summary
 
@@ -207,10 +206,10 @@ QGIS screenshots of Maricopa interchanges. They show untagged second carriageway
 
 The 200 longest untagged `motorway`/`trunk` segments in Maricopa were each rendered over the OpenStreetMap basemap, with the Overture road layer styled by class. Four representative cases follow (the rest are available on request).
 
-![Fig. A1 — Freeway-to-freeway interchange (segment 6348, 1.8 km). Ramps and collector lanes branch from the mainline. Overture classes them as `motorway`, while TIGER codes them S1630.](figs/ss_013_fid6348_motorway_1796m.jpg){width=95%}
+![Fig. A1 — Freeway-to-freeway interchange (segment 6348, 1.8 km). Ramps and collector lanes branch from the mainline. Overture classes them as `motorway`, while TIGER codes them S1630.](figs/ss_013_fid6348_motorway_1796m.jpg)
 
-![Fig. A2 — Interchange on an arterial grid (segment 9798, 1.4 km). The ramp loops and frontage/service connectors run parallel to the mainline.](figs/ss_020_fid9798_motorway_1441m.jpg){width=95%}
+![Fig. A2 — Interchange on an arterial grid (segment 9798, 1.4 km). The ramp loops and frontage/service connectors run parallel to the mainline.](figs/ss_020_fid9798_motorway_1441m.jpg)
 
-![Fig. A3 — Rural trunk junction (segment 30157, 1.2 km). Link roads make up a large share of the named-highway length in a sparse tract.](figs/ss_032_fid30157_trunk_1217m.jpg){width=95%}
+![Fig. A3 — Rural trunk junction (segment 30157, 1.2 km). Link roads make up a large share of the named-highway length in a sparse tract.](figs/ss_032_fid30157_trunk_1217m.jpg)
 
-![Fig. A4 — Curving divided freeway (segment 28771, 1.0 km). The second carriageway carries no route tag, so a route-based reference proxy misses it.](figs/ss_052_fid28771_motorway_1032m.jpg){width=95%}
+![Fig. A4 — Curving divided freeway (segment 28771, 1.0 km). The second carriageway carries no route tag, so a route-based reference proxy misses it.](figs/ss_052_fid28771_motorway_1032m.jpg)
