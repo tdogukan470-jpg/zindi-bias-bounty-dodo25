@@ -1,0 +1,25 @@
+SC = {
+ 't3_transport_8_25':0.079037515,'t4_bldg_osmshare':0.080568,'t4b_bldg_osmshare_flip':0.077806,
+ 't5_osmshare_x2p5':0.07654904,'p1_poi_bq':0.080078714,'p2_poi_perhu':0.078937,
+ 't7_bld_poi_joint':0.0753586,'q3_bld_perhu':0.0749142,'q5_poi_meta':0.0750114,
+ 't8_q5q3':0.074457539,'r1_poi_4sq':0.074752425,'r2_poi_conf':0.07441251,'r3_bld_msshare':0.074585596,
+ 't9b_joint_r123':0.074302004,'u1_core2':0.074315091,'u2_fm_half':0.076890749,'v1_bld_struct':0.074266044,
+ 'w1_denominator_scaling':0.074920285,'x1_bld_struct_nosmall':0.074072256,'t10_joint_u1u2w1x1':0.073705046,
+ 'y1_msft_share':0.075273305,'y2_hiconf_share':0.075043576,'y3_area_per_bldg':0.074781781,
+ 't11_joint_y123':0.073667375,'z1_multisrc':0.073841365,'z2_tx_shift':0.075999378,'z3_rural':0.073847753,
+ 'z4_poi_per_pop':0.073320629,'t12_joint_z1234':0.073018822,'a1_poi_struct':0.073499988,
+ 'a2_bld_struct_v2':0.073888349,'a3_tx_fm_symmetric':0.073153991,'a4_poi_facility':0.07323542,
+ 't13_joint_a1234':0.072510933,'b1_bld_rural':0.072510123,'b2_bld_urban':0.073109459,
+ 'b3_prisec_sym':0.070502441,'b4_poi_biz_hu':0.072837386,'t14_joint_b1234':0.069408591,
+ 'c1_ref_routed_nolink':0.070702075,'c2_ref_4class_routed_nolink':0.071917769,'c4_ref_noBuffer':0.06971171,
+ 't15_joint_c124':0.068512275,'d3_buf_tight':0.069605119,'d4_floor_zero':0.069291257,
+ 'e1_refscale_tx':0.068827356,'e2_refscale_other':0.068610816,'t16_joint_de':0.067995159,
+ 'f1_scale_az':0.068710932,'f2_scale_ok':0.069119303,'f3_scale_ca':0.069653434,'f4_scale_wa':0.067995159,
+ 't17_joint_f123':0.067924736,
+}
+# corrected assignments from LOO consistency (b-batch and a1/a2 swap)
+SC.update({'b1_bld_rural':0.073109459,'b2_bld_urban':0.072837386,'b4_poi_biz_hu':0.072510123,
+           'a1_poi_struct':0.073888349,'a2_bld_struct_v2':0.073499988})
+SC.update({'t18_global':0.065992971,'h1_county_poi':0.067245915})
+SC.update({'h2_knn_smooth':0.066053999,'h3_tail_stretch':0.066922963,'h4_facility_zero':0.066696987})
+SC.update({'t19_global':0.065813806,'k2_knn4_w':0.065805575,'k4_knn8_m0':0.065543799,'k5_knn8_lowres':0.0661268,'i3_m0_const_tx':0.06755482})
