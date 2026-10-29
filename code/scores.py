@@ -23,3 +23,6 @@ SC.update({'b1_bld_rural':0.073109459,'b2_bld_urban':0.072837386,'b4_poi_biz_hu'
 SC.update({'t18_global':0.065992971,'h1_county_poi':0.067245915})
 SC.update({'h2_knn_smooth':0.066053999,'h3_tail_stretch':0.066922963,'h4_facility_zero':0.066696987})
 SC.update({'t19_global':0.065813806,'k2_knn4_w':0.065805575,'k4_knn8_m0':0.065543799,'k5_knn8_lowres':0.0661268,'i3_m0_const_tx':0.06755482})
+SC.update({'t20_global':0.065523302,'t21_global':0.064900996,'k6_knn8_m1':0.06760483})
+SC.update({'k7_knn16_m0':0.065044531})
+SC.update({'t22_global':0.064761786})

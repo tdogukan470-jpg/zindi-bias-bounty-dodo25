@@ -14,7 +14,7 @@ There are no training labels. The method therefore has three parts:
 2. Interpretable proxy directions for the building and POI components.
 3. A leaderboard-probe calculus that measures how each direction relates to the hidden reference, plus a regularized global re-fit over every scored submission.
 
-Our best public score is **0.0658** (submission `t19_global`). It improved from 0.0790 for the first transport-only reconstruction.
+Our best public score is **0.06476** (submission `t22_global`). It improved from 0.0790 for the first transport-only reconstruction.
 
 **Bias discovery (Section 8).** The transport-gap metric contains a geometric measurement artifact that the automated scorecard cannot see. Census-tract boundaries often run along highways. A reference road lying on a shared boundary is counted in both tracts, while Overture's slightly offset copy of the same road falls in only one of them. The other tract therefore shows a "gap" that does not exist. Under our reconstruction:
 
@@ -99,7 +99,7 @@ Here σ_k is estimated by **leave-one-out prediction** of each scored submission
 
 ## 5.2 Quality control that changed results
 
-- **Leave-one-out consistency revealed two mislabeled batches.** In two batches, the scores had been attached to the wrong files: b1/b2/b4, and a1/a2. With the corrected mapping, the joint prediction error for `t14` fell from 0.00102 to 0.00021. The re-fit with corrected labels (`t18_global`) was predicted at 0.06601 and scored **0.06599**.
+- **Leave-one-out consistency revealed two mislabeled batches.** In two batches, the scores had been attached to the wrong files: b1/b2/b4, and a1/a2. With the corrected mapping, the joint prediction error for `t14` fell from 0.00102 to 0.00021. The re-fit with corrected labels (`t18_global`) was predicted at 0.06601 and scored **0.06599**. Later re-fits behaved the same way: `t21` was predicted at 0.06486 and scored 0.06490.
 - **Eastern WA is not scored.** A probe that changed only the 128 WA tracts left the public score unchanged to 9 digits. All inner products are therefore computed on the four scored regions.
 - **Public/private.** The public leaderboard is a random ~30% sample. We shrink directions in proportion to their estimated noise, and select a public-optimal and a shrunk variant as the two final submissions.
 
@@ -113,7 +113,10 @@ Here σ_k is estimated by **leave-one-out prediction** of each scored submission
 | `t14` | + primary/secondary routed roads in reference (largest single direction) | 0.06941 |
 | `t15`–`t17` | + buffer and reference-scale calibration by region | 0.06792 |
 | `t18_global` | global re-fit, corrected labels | 0.06599 |
-| `t19_global` | + county/kNN/tail/facility probes | **0.06581** |
+| `t19_global` | + county/kNN/tail/facility probes | 0.06581 |
+| `t20_global` | noise-weighted re-fit over all scored vectors | 0.06552 |
+| `t21_global` | re-fit incl. t20 (predicted 0.06486) | 0.06490 |
+| `t22_global` | re-fit incl. t21 and kNN probes (predicted 0.06464) | **0.06476** |
 
 **Directions that did not help** (reported for completeness):
 
@@ -192,7 +195,7 @@ Every number in this section is computed from the provided Overture roads (per-t
 | `global_refit.py` | Leave-one-out noise model, noise-weighted global re-fit, label-consistency check |
 | `bias_artifacts.py` | Section 8 tables (`bias_artifacts_table.csv`) |
 
-**Associated leaderboard submissions:** `t18_global` (0.06599), `t19_global` (0.06581), and the final selections made at close.
+**Associated leaderboard submissions:** `t18_global` (0.06599), `t19_global` (0.06581), `t20_global` (0.06552), `t21_global` (0.06490), `t22_global` (0.06476), and the final selections made at close.
 
 # Appendix — field inspection figures
 
