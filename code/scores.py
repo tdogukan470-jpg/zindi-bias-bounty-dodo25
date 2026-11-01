@@ -26,3 +26,7 @@ SC.update({'t19_global':0.065813806,'k2_knn4_w':0.065805575,'k4_knn8_m0':0.06554
 SC.update({'t20_global':0.065523302,'t21_global':0.064900996,'k6_knn8_m1':0.06760483})
 SC.update({'k7_knn16_m0':0.065044531})
 SC.update({'t22_global':0.064761786})
+SC.update({'rc1_ca_m0':0.064822482,'rc2_ok_m0':0.064900579,'rc3_ca_m1':0.064690163,'rc4_az_m1':0.064774767,'rc5_az_m0':0.065335218})
+SC.update({'t23_global':0.064148505})
+SC.update({'ru1_az_rural':0.064267965,'ru2_ca_rural':0.064113174,'st1_ca_stretch':0.064160451})
+SC.update({'t24_global':0.063914455})

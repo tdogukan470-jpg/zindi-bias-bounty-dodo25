@@ -5,7 +5,7 @@ mat=np.load(sp+'mat2.npy'); names=list(pd.read_csv(sp+'names2.csv').iloc[:,0])
 T=pd.read_csv('/mnt/user-data/outputs/t18_global.csv',dtype={'GEOID':str}); reg=T.region.values
 mask=reg!='eastern-wa'; A=mat[mask]; n=len(A)
 excl={'f4_scale_wa'}
-r=names.index('t21_global'); D=A-A[:,[r]]; q=(D**2).mean(0); G=D.T@D/n
+r=names.index('t23_global'); D=A-A[:,[r]]; q=(D**2).mean(0); G=D.T@D/n
 M=np.array([SC[k]**2 for k in names]); g=(M-M[r]-q)/2
 ks=[i for i in range(len(names)) if i!=r and names[i] not in excl]
 # LOO consistency
