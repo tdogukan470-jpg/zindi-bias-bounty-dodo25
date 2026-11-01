@@ -1,0 +1,59 @@
+{
+ "defined_tracts": 6707,
+ "mean_boundary_artifact": 0.06579123801222946,
+ "share_gt_0_05_defined": 0.26956910690323543,
+ "share_gt_0_05_all": 0.19447133483919543,
+ "mean_ramp_artifact": 0.004271079226484617,
+ "boundary_share_of_ref_length": {
+  "all_regions": 0.288835393589635,
+  "motorway_trunk": 0.297108073477613,
+  "tract_mean_rural": 0.3422246890872902,
+  "tract_mean_nonrural": 0.5768890561281279
+ },
+ "buffer_adds_share_of_ref": {
+  "median_rural": 0.1103602632819352,
+  "median_nonrural": 0.2967212985811303
+ },
+ "ov_over_ref_median": {
+  "rural": 1.0,
+  "nonrural": 2.3786194925968127
+ },
+ "gap_zero_share": {
+  "rural": 0.5695364238410596,
+  "nonrural": 0.9591755846214823
+ },
+ "link_share_of_4class_length": {
+  "high_svi_minority": 0.09187238394414633,
+  "rest": 0.06906440206080211,
+  "rural": 0.03405611196413691,
+  "nonrural": 0.08679609912766853
+ },
+ "link_length_by_class": {
+  "motorway": 0.73,
+  "primary": 0.07,
+  "secondary": 0.118,
+  "trunk": 0.082
+ },
+ "composite_rural": {
+  "ratio_with": 2.355733544681841,
+  "ratio_without": 2.2025506002051554,
+  "diff_with": 0.0642427531346565,
+  "diff_without": 0.04544403306850047,
+  "artifact_share_of_diff": 0.29262008785259913
+ },
+ "composite_tribal": {
+  "ratio_with": 2.77966268431243,
+  "ratio_without": 3.0334163938242966,
+  "diff_with": 0.09142604015950835,
+  "diff_without": 0.07994729797473046,
+  "artifact_share_of_diff": 0.1255522186540209
+ },
+ "c4_astar_public": 0.35436484037832083,
+ "c4_astar_private": 0.28637518070202916,
+ "boundary_artifact_under_model_flag": {
+  "defined": 6269,
+  "mean": 0.06146557571079049,
+  "rural": 0.0946956231285557,
+  "nonrural": 0.050192489767741745
+ }
+}

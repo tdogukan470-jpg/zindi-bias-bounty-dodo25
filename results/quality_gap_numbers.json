@@ -1,0 +1,152 @@
+{
+ "tracts": 9386,
+ "population": 38750420,
+ "region_ml_share_mean": {
+  "eastern-ok": 0.64,
+  "maricopa-az": 0.132,
+  "northern-ca": 0.453,
+  "south-central-tx": 0.387
+ },
+ "ms_null_subtype_share": 1.0,
+ "multisrc_share_Microsoft ML Buildings": 0.019742582730544248,
+ "multisrc_share_OpenStreetMap": 0.7225490659875442,
+ "osm_subtype_rate": 0.398021131467849,
+ "src_counts_buildings": {
+  "Esri Community Maps": 802782,
+  "Google Open Buildings": 292088,
+  "Microsoft ML Buildings": 7861788,
+  "OpenStreetMap": 9131784
+ },
+ "ml90": {
+  "tracts": 1816,
+  "population": 6979357,
+  "median_count_cov": 1.0085185383698756,
+  "median_count_cov_rest": 1.0204616596115912,
+  "median_attr": 0.006295914592251995,
+  "tract_share_rural": 0.45870044052863435,
+  "tract_share_tribal": 0.22797356828193832,
+  "tract_share_wf": 0.23898678414096916,
+  "pop_share_rural": 0.4003321509416985,
+  "pop_share_tribal": 0.19882949102617906,
+  "pop_share_wf": 0.21505390826117649
+ },
+ "osm_lt5": {
+  "tracts": 1414,
+  "share": 0.150649904112508,
+  "population": 5369878,
+  "share_in_rural": 0.35864485981308414,
+  "share_in_tribal": 0.37405541561712846,
+  "share_in_wf": 0.3365282215122471,
+  "share_out_rural": 0.10424811050299713,
+  "share_out_tribal": 0.1300046554934823,
+  "share_out_wf": 0.12998697762519237
+ },
+ "buildings": {
+  "rural": 5380847,
+  "rural_attrless": 5162820,
+  "nonrural": 12707595,
+  "nonrural_attrless": 9285289,
+  "ml_share_bw_rural": 0.707973670316216,
+  "ml_share_bw_nonrural": 0.31888724813782626,
+  "attrless_bw_rural_wf": 0.9654295218604438,
+  "attrless_bw_tribal_rural": 0.9739732727640993
+ },
+ "pop_affected": {
+  "rural": {
+   "population": 5981876,
+   "in_attr_lt10": 5348244
+  },
+  "tribal": {
+   "population": 2638745,
+   "in_attr_lt10": 2170802
+  },
+  "wf": {
+   "population": 3333701,
+   "in_attr_lt10": 2970229
+  }
+ },
+ "poi": {
+  "per1k_pooled_rural": 40.658482389136786,
+  "per1k_pooled_nonrural": 51.31091573675047,
+  "per_hu_pooled_rural": 0.09146773954556087,
+  "per_hu_pooled_nonrural": 0.12239379322021905,
+  "has_fire_rural": 0.6524532710280374,
+  "has_fire_nonrural": 0.28681261402137087
+ },
+ "counties": {
+  "Butte County, CA": {
+   "tracts": 54,
+   "population": 211632,
+   "buildings": 105351,
+   "ml_share_bw": 0.7537944585243614,
+   "attrless_bw": 0.9630758132338564
+  },
+  "Plumas County, CA": {
+   "tracts": 7,
+   "population": 19790,
+   "buildings": 18863,
+   "ml_share_bw": 0.7928749403594338,
+   "attrless_bw": 0.9687748502359116
+  },
+  "Kerr County, TX": {
+   "tracts": 14,
+   "population": 52598,
+   "buildings": 42120,
+   "ml_share_bw": 0.6745489078822412,
+   "attrless_bw": 0.8438509021842355
+  },
+  "Gillespie County, TX": {
+   "tracts": 7,
+   "population": 26725,
+   "buildings": 29491,
+   "ml_share_bw": 0.9366925502695738,
+   "attrless_bw": 0.9857583669594113
+  },
+  "Cherokee County, OK": {
+   "tracts": 13,
+   "population": 47078,
+   "buildings": 32954,
+   "ml_share_bw": 0.9678642956848941,
+   "attrless_bw": 0.9861928749165504
+  },
+  "Maricopa County, AZ": {
+   "tracts": 1009,
+   "population": 4420568,
+   "buildings": 1657884,
+   "ml_share_bw": 0.0731764104123087,
+   "attrless_bw": 0.5756609026928301
+  }
+ },
+ "t24_by_mlbin": {
+  "<10%": {
+   "tracts": 4013,
+   "all": 0.03519588678062794,
+   "rural": 0.10006240900733793,
+   "urban": 0.03316203540266376
+  },
+  "10-50%": {
+   "tracts": 1893,
+   "all": 0.053762245381946565,
+   "rural": 0.0820842245139442,
+   "urban": 0.04882522544640604
+  },
+  "50-90%": {
+   "tracts": 1655,
+   "all": 0.07775697863406203,
+   "rural": 0.10934940959852918,
+   "urban": 0.0650021040462025
+  },
+  ">90%": {
+   "tracts": 1816,
+   "all": 0.10050754952708775,
+   "rural": 0.12459157163885493,
+   "urban": 0.08009860708649563
+  }
+ },
+ "t24_disparity": {
+  "rural_ratio": 2.355733544681841,
+  "ml90_ratio": 2.0439606667100065,
+  "ml90_vs_lt10": 2.858064704610186,
+  "rural_pooled_d": 1.147591722684355
+ }
+}
