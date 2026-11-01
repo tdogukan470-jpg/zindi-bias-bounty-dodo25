@@ -3,7 +3,9 @@ Reads data/rb3.parquet (per tract x class x route-flags x subclass: L0 = road le
 tract, L8/L25 = inside the tract buffered by 8/25 m, Lbd8 = within 8 m of the tract boundary), the strata
 tables, and optionally the final submission and the two leaderboard probes. Writes
 results/bias_artifacts_table.csv and results/bias_artifacts_numbers.json.
-Usage: python bias_artifacts.py <rb3.parquet> <bundle_dir> <out_dir> [<t24_csv> <t14_csv> <c4_csv> <roadfeat2.parquet>]
+Usage: python bias_artifacts.py <rb3.parquet> <bundle_dir> <out_dir>
+(the final submission, probes t14/c4 and their scores are read from data/scored_vectors.parquet and data/scores.csv;
+ the model definedness flag from data/roadfeat2.parquet)
 Definitions (artifact analysis): reference proxy = route-tagged roads (core: Interstate/US/State; fm: Texas
 FM/RM), subclass != link; numerator = Overture motorway/trunk/primary/secondary, all subclasses; defined =
 strict-inside reference > 100 m. boundary_added_gap = gap(ov, ref_L8) - gap(ov, ref_L0); ramp_hidden_gap =
@@ -11,7 +13,11 @@ gap(ov_without_links, ref_L0) - gap(ov, ref_L0); gap(o, r) = clip(1 - o/r, 0, 1)
 """
 import sys, json, numpy as np, pandas as pd
 from math import erf, sqrt
-RB, B, OUT = sys.argv[1:4]; EXTRA = sys.argv[4:]
+import os
+RB, B, OUT = sys.argv[1:4]
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+VEC = pd.read_parquet(f"{ROOT}/data/scored_vectors.parquet").set_index("GEOID")
+SCS = pd.read_csv(f"{ROOT}/data/scores.csv").drop_duplicates("name").set_index("name")
 R = ["maricopa-az", "northern-ca", "eastern-ok", "south-central-tx"]
 rb = pd.read_parquet(RB); rb = rb[rb.region.isin(R)]
 ST = pd.concat([pd.read_parquet(f"{B}/{r}-strata.parquet") for r in R]).drop_duplicates("GEOID").set_index("GEOID")
@@ -49,19 +55,20 @@ ls = (ALL.ov_link / ALL.ov.replace(0, np.nan)); SA = ST.reindex(ALL.index)
 N["link_share_of_4class_length"] = dict(high_svi_minority=float(ls[(SA.svi_minority >= 0.75).fillna(False).values].mean()), rest=float(ls[~(SA.svi_minority >= 0.75).fillna(False).values].mean()),
                                         rural=float(ls[(SA.ur_class == "Rural").values].mean()), nonrural=float(ls[(SA.ur_class != "Rural").values].mean()))
 N["link_length_by_class"] = (rb[c4 & lk].groupby("class").L0.sum() / rb[c4 & lk].L0.sum()).round(3).to_dict()
-if len(EXTRA) >= 1:  # propagate the boundary artifact into the final composite
-    s = pd.read_csv(EXTRA[0], dtype={"GEOID": str}).set_index("GEOID").coverage_gap_score
+if True:  # propagate the boundary artifact into the final composite (model output, not the reference)
+    s = VEC["t24_global"]
     s = s[s.index.isin(ST.index)]; a = T.boundary_added_gap.reindex(s.index).fillna(0); s2 = (s - a / 3).clip(0, 1); SS = ST.reindex(s.index)
     for nm, msk in [("rural", (SS.ur_class == "Rural").values), ("tribal", (SS.tribal_statistical > 0).values)]:
         r1, r2 = s[msk].mean() / s[~msk].mean(), s2[msk].mean() / s2[~msk].mean(); d1, d2 = s[msk].mean() - s[~msk].mean(), s2[msk].mean() - s2[~msk].mean()
         N[f"composite_{nm}"] = dict(ratio_with=float(r1), ratio_without=float(r2), diff_with=float(d1), diff_without=float(d2), artifact_share_of_diff=float((d1 - d2) / d1))
-if len(EXTRA) >= 3:  # probe calculus for c4 (no buffer) relative to t14
-    base = pd.read_csv(EXTRA[1], dtype={"GEOID": str}).set_index("GEOID").coverage_gap_score; probe = pd.read_csv(EXTRA[2], dtype={"GEOID": str}).set_index("GEOID").coverage_gap_score
+if True:  # probe calculus for c4 (no buffer) relative to t14; public board only (four regions)
+    base = VEC["t14_joint_b1234"]; probe = VEC["c4_ref_noBuffer"]
     u = (probe - base).reindex(base.index); mk = base.index.isin(ST.index); u = u[mk].fillna(0).values
-    for lbl, M0, M1 in [("public", 0.069408591, 0.06971171), ("private", 0.069223432, 0.069668792)]:
-        q = (u ** 2).mean(); c = (M1 ** 2 - M0 ** 2 - q) / 2; N[f"c4_astar_{lbl}"] = float(-c / q)
-if len(EXTRA) >= 4:  # artifact under the leaderboard model's definedness flag (core-route reference within buffers > 100 m)
-    f = pd.read_parquet(EXTRA[3]).set_index("GEOID"); mflag = (f.coreB.reindex(ALL.index).fillna(0) > 100)
+    M0, M1 = SCS.loc["t14_joint_b1234", "public"], SCS.loc["c4_ref_noBuffer", "public"]
+    q = (u ** 2).mean(); c = (M1 ** 2 - M0 ** 2 - q) / 2; N["c4_astar_public"] = float(-c / q)
+    N["c4_scores"] = dict(t14_public=float(M0), c4_public=float(M1), t14_private=float(SCS.loc["t14_joint_b1234", "private"]), c4_private=float(SCS.loc["c4_ref_noBuffer", "private"]))
+if True:  # artifact under the leaderboard model's definedness flag (core-route reference within buffers > 100 m)
+    f = pd.read_parquet(f"{ROOT}/data/roadfeat2.parquet").set_index("GEOID"); mflag = (f.coreB.reindex(ALL.index).fillna(0) > 100)
     TT = ALL[mflag]; art = gap(TT.ov, TT.ref_L8) - gap(TT.ov, TT.ref_L0); S2 = ST.reindex(TT.index); ru2 = (S2.ur_class == "Rural").fillna(False).values
     N["boundary_artifact_under_model_flag"] = dict(defined=int(len(TT)), mean=float(art.mean()), rural=float(art[ru2].mean()), nonrural=float(art[~ru2].mean()))
 json.dump(N, open(f"{OUT}/bias_artifacts_numbers.json", "w"), indent=1); print(json.dumps(N, indent=1))

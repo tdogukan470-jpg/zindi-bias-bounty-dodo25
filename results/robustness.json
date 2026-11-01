@@ -1,0 +1,177 @@
+{
+ "n_tracts": 9377,
+ "n_counties": 298,
+ "bw_rural": {
+  "osm_share": 0.24524856402718753,
+  "osm_subtype_rate": 0.16365007255739233,
+  "attr_share": 0.04051908556403853,
+  "ml_share": 0.707973670316216
+ },
+ "bw_urban": {
+  "osm_share": 0.6147614084333031,
+  "osm_subtype_rate": 0.4376116451588995,
+  "attr_share": 0.26931185641342836,
+  "ml_share": 0.31888724813782626
+ },
+ "attr_if_rural_had_urban_osm_share": 0.10060574909559475,
+ "attr_if_rural_had_urban_tagging": 0.10732362757679524,
+ "log_decomp_share_osm_coverage": 0.4851715815963567,
+ "popw_ml_rural": [
+  0.7091657420405364,
+  0.30221936115484327
+ ],
+ "popw_ml_tribal": [
+  0.7999586526853717,
+  0.33325906569021196
+ ],
+ "popw_ml_wf": [
+  0.6898128424911731,
+  0.3344691585678272
+ ],
+ "ml90_exposure": {
+  "tracts": 1816,
+  "pop": 6979357,
+  "pop_urban": 4185296,
+  "tracts_urban": 983,
+  "tracts_rural": 833,
+  "urban_tracts_by_region": {
+   "south-central-tx": 721,
+   "eastern-ok": 187,
+   "northern-ca": 47,
+   "maricopa-az": 28
+  }
+ },
+ "wf_within_rural_by_region": {
+  "maricopa-az": [
+   0.33940910829861576,
+   0.43306988710242333
+  ],
+  "northern-ca": [
+   0.7467735894911169,
+   0.7138178344784526
+  ],
+  "eastern-ok": [
+   0.8984799185736715,
+   0.8471367643254946
+  ],
+  "south-central-tx": [
+   0.75640205421555,
+   0.6972429003206165
+  ]
+ },
+ "tribal_tracts_by_region": {
+  "eastern-ok": 792,
+  "northern-ca": 2
+ },
+ "count_cov_by_bin": {
+  "<10%": {
+   "median": 1.0228042425201607,
+   "iqr": 0.186451471380217
+  },
+  "10-50%": {
+   "median": 1.0228900673800758,
+   "iqr": 0.1384473120976727
+  },
+  "50-90%": {
+   "median": 1.0146498040098857,
+   "iqr": 0.10784291871842766
+  },
+  ">90%": {
+   "median": 1.0085185383698756,
+   "iqr": 0.09313470200960228
+  }
+ },
+ "artifact_regressions": [
+  {
+   "artifact": "bnd",
+   "group": "rural",
+   "spec": "raw, clustered",
+   "coef": 0.044440055526928444,
+   "t_cluster": 4.411115156212975
+  },
+  {
+   "artifact": "bnd",
+   "group": "rural",
+   "spec": "region FE, clustered",
+   "coef": 0.04569876114260835,
+   "t_cluster": 4.775837496723514
+  },
+  {
+   "artifact": "bnd",
+   "group": "tribal",
+   "spec": "raw, clustered",
+   "coef": 0.020546086385005765,
+   "t_cluster": 1.2252667355823437
+  },
+  {
+   "artifact": "bnd",
+   "group": "tribal",
+   "spec": "region FE, clustered",
+   "coef": 0.024414865072763803,
+   "t_cluster": 0.9759411424237151
+  },
+  {
+   "artifact": "bnd",
+   "group": "svi_minority",
+   "spec": "raw, clustered",
+   "coef": -0.017487304670338582,
+   "t_cluster": -1.2252302364326835
+  },
+  {
+   "artifact": "bnd",
+   "group": "svi_minority",
+   "spec": "region FE, clustered",
+   "coef": -0.0193262762746297,
+   "t_cluster": -1.5041711827486344
+  },
+  {
+   "artifact": "ramp",
+   "group": "rural",
+   "spec": "raw, clustered",
+   "coef": 0.006850442226854178,
+   "t_cluster": 7.104822703505706
+  },
+  {
+   "artifact": "ramp",
+   "group": "rural",
+   "spec": "region FE, clustered",
+   "coef": 0.007993216532072403,
+   "t_cluster": 7.242609295699127
+  },
+  {
+   "artifact": "ramp",
+   "group": "tribal",
+   "spec": "raw, clustered",
+   "coef": -0.00362845209394889,
+   "t_cluster": -3.531932822289696
+  },
+  {
+   "artifact": "ramp",
+   "group": "tribal",
+   "spec": "region FE, clustered",
+   "coef": 0.0009414494341378826,
+   "t_cluster": 2.082661533940035
+  },
+  {
+   "artifact": "ramp",
+   "group": "svi_minority",
+   "spec": "raw, clustered",
+   "coef": -0.002559064416692587,
+   "t_cluster": -3.1365080006629795
+  },
+  {
+   "artifact": "ramp",
+   "group": "svi_minority",
+   "spec": "region FE, clustered",
+   "coef": -0.004339957009360235,
+   "t_cluster": -4.413679861795824
+  }
+ ],
+ "artifact_live_vs_zero": {
+  "live_rural": 0.08454145556122726,
+  "live_urban": 0.1581766447854138,
+  "zero_rural": 0.1103241478442822,
+  "zero_urban": 0.05038505370563208,
+  "share_rural_artifact_from_zero_gap": 0.6332397749511
+ }
+}

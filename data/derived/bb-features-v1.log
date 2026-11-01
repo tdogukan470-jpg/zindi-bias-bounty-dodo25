@@ -1,0 +1,377 @@
+[{"stream_name":"stdout","time":7.341108276,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.6/21.6 MB 68.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":12.527596334,"data":"duckdb 1.5.6\n"}
+,{"stream_name":"stdout","time":15.496810109,"data":"[    1.4s] SCHEMA maricopa-az-overture-buildings.parquet\n"}
+,{"stream_name":"stdout","time":15.538274559,"data":"               column_name                                                                                                                                                                                                                column_type\n"}
+,{"stream_name":"stdout","time":15.538311649,"data":"0                       id                                                                                                                                                                                                                    VARCHAR\n"}
+,{"stream_name":"stdout","time":15.538315839,"data":"1                    names  STRUCT(\"primary\" VARCHAR, common MAP(VARCHAR, VARCHAR), rules STRUCT(variant VARCHAR, \"language\" VARCHAR, perspectives STRUCT(\"mode\" VARCHAR, countries VARCHAR[]), \"value\" VARCHAR, \"between\" DOUBLE[], side VARCHAR)[])\n"}
+,{"stream_name":"stdout","time":15.538319909,"data":"2                  sources                         STRUCT(property VARCHAR, dataset VARCHAR, license VARCHAR, record_id VARCHAR, update_time VARCHAR, confidence DOUBLE, \"between\" DOUBLE[], provider VARCHAR, resource VARCHAR, \"version\" VARCHAR)[]\n"}
+,{"stream_name":"stdout","time":15.538323159,"data":"3                    level                                                                                                                                                                                                                    INTEGER\n"}
+,{"stream_name":"stdout","time":15.538326449,"data":"4                   height                                                                                                                                                                                                                     DOUBLE\n"}
+,{"stream_name":"stdout","time":15.538329629,"data":"5               min_height                                                                                                                                                                                                                     DOUBLE\n"}
+,{"stream_name":"stdout","time":15.538332759,"data":"6           is_underground                                                                                                                                                                                                                    BOOLEAN\n"}
+,{"stream_name":"stdout","time":15.538337178999999,"data":"7               num_floors                                                                                                                                                                                                                    INTEGER\n"}
+,{"stream_name":"stdout","time":15.538340389,"data":"8   num_floors_underground                                                                                                                                                                                                                    INTEGER\n"}
+,{"stream_name":"stdout","time":15.538343519,"data":"9                min_floor                                                                                                                                                                                                                    INTEGER\n"}
+,{"stream_name":"stdout","time":15.538346749,"data":"10                 subtype                                                                                                                                                                                                                    VARCHAR\n"}
+,{"stream_name":"stdout","time":15.538367069,"data":"11                   class                                                                                                                                                                                                                    VARCHAR\n"}
+,{"stream_name":"stdout","time":15.538370669,"data":"12            facade_color                                                                                                                                                                                                                    VARCHAR\n"}
+,{"stream_name":"stdout","time":15.538373979,"data":"13         facade_material                                                                                                                                                                                                                    VARCHAR\n"}
+,{"stream_name":"stdout","time":15.538377859,"data":"14           roof_material                                                                                                                                                                                                                    VARCHAR\n"}
+,{"stream_name":"stdout","time":15.538382229,"data":"15              roof_shape                                                                                                                                                                                                                    VARCHAR\n"}
+,{"stream_name":"stdout","time":15.538385799,"data":"16          roof_direction                                                                                                                                                                                                                     DOUBLE\n"}
+,{"stream_name":"stdout","time":15.538389169,"data":"17        roof_orientation                                                                                                                                                                                                                    VARCHAR\n"}
+,{"stream_name":"stdout","time":15.538392519,"data":"18              roof_color                                                                                                                                                                                                                    VARCHAR\n"}
+,{"stream_name":"stdout","time":15.538396429,"data":"19             roof_height                                                                                                                                                                                                                     DOUBLE\n"}
+,{"stream_name":"stdout","time":15.538400119,"data":"20               has_parts                                                                                                                                                                                                                    BOOLEAN\n"}
+,{"stream_name":"stdout","time":15.538403939,"data":"21                 version                                                                                                                                                                                                                    INTEGER\n"}
+,{"stream_name":"stdout","time":15.538407189,"data":"22                   theme                                                                                                                                                                                                                    VARCHAR\n"}
+,{"stream_name":"stdout","time":15.538410999,"data":"23                    type                                                                                                                                                                                                                    VARCHAR\n"}
+,{"stream_name":"stdout","time":15.538418679,"data":"24                    bbox                                                                                                                                                                 STRUCT(xmin DOUBLE, ymin DOUBLE, xmax DOUBLE, ymax DOUBLE)\n"}
+,{"stream_name":"stdout","time":15.538422329,"data":"25                geometry                                                                                                                                                                                                      GEOMETRY('OGC:CRS84')\n"}
+,{"stream_name":"stdout","time":16.775312028,"data":"[    2.7s] SCHEMA maricopa-az-overture-roads.parquet\n"}
+,{"stream_name":"stdout","time":16.777298826,"data":"               column_name                                                                                                                                                                                                                                                                                                                                                      column_type\n"}
+,{"stream_name":"stdout","time":16.777322346,"data":"0                       id                                                                                                                                                                                                                                                                                                                                                          VARCHAR\n"}
+,{"stream_name":"stdout","time":16.777327486,"data":"1                    names                                                                                                                                        STRUCT(\"primary\" VARCHAR, common MAP(VARCHAR, VARCHAR), rules STRUCT(variant VARCHAR, \"language\" VARCHAR, perspectives STRUCT(\"mode\" VARCHAR, countries VARCHAR[]), \"value\" VARCHAR, \"between\" DOUBLE[], side VARCHAR)[])\n"}
+,{"stream_name":"stdout","time":16.777332236,"data":"2                  subtype                                                                                                                                                                                                                                                                                                                                                          VARCHAR\n"}
+,{"stream_name":"stdout","time":16.777336456,"data":"3                    class                                                                                                                                                                                                                                                                                                                                                          VARCHAR\n"}
+,{"stream_name":"stdout","time":16.777341586,"data":"4                 subclass                                                                                                                                                                                                                                                                                                                                                          VARCHAR\n"}
+,{"stream_name":"stdout","time":16.777346106,"data":"5           subclass_rules                                                                                                                                                                                                                                                                                                                    STRUCT(\"value\" VARCHAR, \"between\" DOUBLE[])[]\n"}
+,{"stream_name":"stdout","time":16.777350166,"data":"6               connectors                                                                                                                                                                                                                                                                                                                      STRUCT(connector_id VARCHAR, \"at\" DOUBLE)[]\n"}
+,{"stream_name":"stdout","time":16.777369366,"data":"7             road_surface                                                                                                                                                                                                                                                                                                                    STRUCT(\"value\" VARCHAR, \"between\" DOUBLE[])[]\n"}
+,{"stream_name":"stdout","time":16.777373636,"data":"8               road_flags                                                                                                                                                                                                                                                                                                                 STRUCT(\"values\" VARCHAR[], \"between\" DOUBLE[])[]\n"}
+,{"stream_name":"stdout","time":16.777378116,"data":"9               rail_flags                                                                                                                                                                                                                                                                                                                 STRUCT(\"values\" VARCHAR[], \"between\" DOUBLE[])[]\n"}
+,{"stream_name":"stdout","time":16.777390606,"data":"10             width_rules                                                                                                                                                                                                                                                                                                                     STRUCT(\"value\" DOUBLE, \"between\" DOUBLE[])[]\n"}
+,{"stream_name":"stdout","time":16.777394426,"data":"11             level_rules                                                                                                                                                                                                                                                                                                                    STRUCT(\"value\" INTEGER, \"between\" DOUBLE[])[]\n"}
+,{"stream_name":"stdout","time":16.777401496,"data":"12     access_restrictions                                                                                                              STRUCT(access_type VARCHAR, \"when\" STRUCT(during VARCHAR, heading VARCHAR, \"using\" VARCHAR[], recognized VARCHAR[], \"mode\" VARCHAR[], vehicle STRUCT(dimension VARCHAR, comparison VARCHAR, \"value\" DOUBLE, unit VARCHAR)[]), \"between\" DOUBLE[])[]\n"}
+,{"stream_name":"stdout","time":16.777405316,"data":"13            speed_limits  STRUCT(min_speed STRUCT(\"value\" INTEGER, unit VARCHAR), max_speed STRUCT(\"value\" INTEGER, unit VARCHAR), is_max_speed_variable BOOLEAN, \"when\" STRUCT(during VARCHAR, heading VARCHAR, \"using\" VARCHAR[], recognized VARCHAR[], \"mode\" VARCHAR[], vehicle STRUCT(dimension VARCHAR, comparison VARCHAR, \"value\" DOUBLE, unit VARCHAR)[]), \"between\" DOUBLE[])[]\n"}
+,{"stream_name":"stdout","time":16.777409506,"data":"14  prohibited_transitions                                             STRUCT(\"sequence\" STRUCT(connector_id VARCHAR, segment_id VARCHAR)[], final_heading VARCHAR, \"when\" STRUCT(heading VARCHAR, during VARCHAR, \"using\" VARCHAR[], recognized VARCHAR[], \"mode\" VARCHAR[], vehicle STRUCT(dimension VARCHAR, comparison VARCHAR, \"value\" DOUBLE, unit VARCHAR)[]), \"between\" DOUBLE[])[]\n"}
+,{"stream_name":"stdout","time":16.777414286,"data":"15                  routes                                                                                                                                                                                                                                                   STRUCT(\"name\" VARCHAR, network VARCHAR, \"ref\" VARCHAR, symbol VARCHAR, wikidata VARCHAR, \"between\" DOUBLE[])[]\n"}
+,{"stream_name":"stdout","time":16.777423496,"data":"16            destinations                                                                                                                                                  STRUCT(labels STRUCT(\"value\" VARCHAR, \"type\" VARCHAR)[], symbols VARCHAR[], from_connector_id VARCHAR, to_segment_id VARCHAR, to_connector_id VARCHAR, \"when\" STRUCT(heading VARCHAR), final_heading VARCHAR)[]\n"}
+,{"stream_name":"stdout","time":16.777428276,"data":"17                 sources                                                                                                                                                               STRUCT(property VARCHAR, dataset VARCHAR, license VARCHAR, record_id VARCHAR, update_time VARCHAR, confidence DOUBLE, \"between\" DOUBLE[], provider VARCHAR, resource VARCHAR, \"version\" VARCHAR)[]\n"}
+,{"stream_name":"stdout","time":16.777431896,"data":"18                 version                                                                                                                                                                                                                                                                                                                                                          INTEGER\n"}
+,{"stream_name":"stdout","time":16.777435536,"data":"19                   theme                                                                                                                                                                                                                                                                                                                                                          VARCHAR\n"}
+,{"stream_name":"stdout","time":16.777440046,"data":"20                    type                                                                                                                                                                                                                                                                                                                                                          VARCHAR\n"}
+,{"stream_name":"stdout","time":16.777443536,"data":"21                    bbox                                                                                                                                                                                                                                                                                                       STRUCT(xmin DOUBLE, ymin DOUBLE, xmax DOUBLE, ymax DOUBLE)\n"}
+,{"stream_name":"stdout","time":16.777446956,"data":"22                geometry                                                                                                                                                                                                                                                                                                                                            GEOMETRY('OGC:CRS84')\n"}
+,{"stream_name":"stdout","time":17.659386817,"data":"[    3.6s] SCHEMA maricopa-az-overture-pois.parquet\n"}
+,{"stream_name":"stdout","time":17.661143936,"data":"         column_name                                                                                                                                                                                                                                                  column_type\n"}
+,{"stream_name":"stdout","time":17.661168545,"data":"0                 id                                                                                                                                                                                                                                                      VARCHAR\n"}
+,{"stream_name":"stdout","time":17.661192145,"data":"1         categories                                                                                                                                                                                                               STRUCT(\"primary\" VARCHAR, alternate VARCHAR[])\n"}
+,{"stream_name":"stdout","time":17.661196475,"data":"2         confidence                                                                                                                                                                                                                                                       DOUBLE\n"}
+,{"stream_name":"stdout","time":17.661200025,"data":"3           websites                                                                                                                                                                                                                                                    VARCHAR[]\n"}
+,{"stream_name":"stdout","time":17.661203655,"data":"4             emails                                                                                                                                                                                                                                                    VARCHAR[]\n"}
+,{"stream_name":"stdout","time":17.661206935,"data":"5            socials                                                                                                                                                                                                                                                    VARCHAR[]\n"}
+,{"stream_name":"stdout","time":17.661211465,"data":"6             phones                                                                                                                                                                                                                                                    VARCHAR[]\n"}
+,{"stream_name":"stdout","time":17.661215345,"data":"7              brand  STRUCT(wikidata VARCHAR, \"names\" STRUCT(\"primary\" VARCHAR, common MAP(VARCHAR, VARCHAR), rules STRUCT(variant VARCHAR, \"language\" VARCHAR, perspectives STRUCT(\"mode\" VARCHAR, countries VARCHAR[]), \"value\" VARCHAR, \"between\" DOUBLE[], side VARCHAR)[]))\n"}
+,{"stream_name":"stdout","time":17.661219585,"data":"8          addresses                                                                                                                                                              STRUCT(freeform VARCHAR, locality VARCHAR, postcode VARCHAR, region VARCHAR, country VARCHAR)[]\n"}
+,{"stream_name":"stdout","time":17.661223325,"data":"9              names                                    STRUCT(\"primary\" VARCHAR, common MAP(VARCHAR, VARCHAR), rules STRUCT(variant VARCHAR, \"language\" VARCHAR, perspectives STRUCT(\"mode\" VARCHAR, countries VARCHAR[]), \"value\" VARCHAR, \"between\" DOUBLE[], side VARCHAR)[])\n"}
+,{"stream_name":"stdout","time":17.661225985,"data":"10           sources                                                           STRUCT(property VARCHAR, dataset VARCHAR, license VARCHAR, record_id VARCHAR, update_time VARCHAR, confidence DOUBLE, \"between\" DOUBLE[], provider VARCHAR, resource VARCHAR, \"version\" VARCHAR)[]\n"}
+,{"stream_name":"stdout","time":17.661228395,"data":"11  operating_status                                                                                                                                                                                                                                                      VARCHAR\n"}
+,{"stream_name":"stdout","time":17.661234635,"data":"12    basic_category                                                                                                                                                                                                                                                      VARCHAR\n"}
+,{"stream_name":"stdout","time":17.661237485,"data":"13          taxonomy                                                                                                                                                                                         STRUCT(\"primary\" VARCHAR, hierarchy VARCHAR[], alternates VARCHAR[])\n"}
+,{"stream_name":"stdout","time":17.661240035,"data":"14           version                                                                                                                                                                                                                                                      INTEGER\n"}
+,{"stream_name":"stdout","time":17.661242206,"data":"15             theme                                                                                                                                                                                                                                                      VARCHAR\n"}
+,{"stream_name":"stdout","time":17.661244366,"data":"16              type                                                                                                                                                                                                                                                      VARCHAR\n"}
+,{"stream_name":"stdout","time":17.661246665,"data":"17              bbox                                                                                                                                                                                                   STRUCT(xmin DOUBLE, ymin DOUBLE, xmax DOUBLE, ymax DOUBLE)\n"}
+,{"stream_name":"stdout","time":17.661248805,"data":"18          geometry                                                                                                                                                                                                                                        GEOMETRY('OGC:CRS84')\n"}
+,{"stream_name":"stdout","time":18.290883629,"data":"[    4.2s] SCHEMA maricopa-az-census-acs-housing.parquet\n"}
+,{"stream_name":"stdout","time":18.292389387,"data":"     column_name                                                 column_type\n"}
+,{"stream_name":"stdout","time":18.292409887,"data":"0          GEOID                                                     VARCHAR\n"}
+,{"stream_name":"stdout","time":18.292414167,"data":"1        STATEFP                                                     VARCHAR\n"}
+,{"stream_name":"stdout","time":18.292417667,"data":"2       COUNTYFP                                                     VARCHAR\n"}
+,{"stream_name":"stdout","time":18.292420697,"data":"3        TRACTCE                                                     VARCHAR\n"}
+,{"stream_name":"stdout","time":18.292423627,"data":"4  housing_units                                                      BIGINT\n"}
+,{"stream_name":"stdout","time":18.292426627,"data":"5           bbox  STRUCT(xmin DOUBLE, ymin DOUBLE, xmax DOUBLE, ymax DOUBLE)\n"}
+,{"stream_name":"stdout","time":18.292429837,"data":"6       geometry                                       GEOMETRY('OGC:CRS84')\n"}
+,{"stream_name":"stdout","time":18.987130658,"data":"[    4.9s] SCHEMA maricopa-az-census-tracts.parquet\n"}
+,{"stream_name":"stdout","time":18.988620597,"data":"        column_name                                                 column_type\n"}
+,{"stream_name":"stdout","time":18.988638357,"data":"0             GEOID                                                     VARCHAR\n"}
+,{"stream_name":"stdout","time":18.988651917,"data":"1           STATEFP                                                     VARCHAR\n"}
+,{"stream_name":"stdout","time":18.988655237,"data":"2          COUNTYFP                                                     VARCHAR\n"}
+,{"stream_name":"stdout","time":18.988658467,"data":"3           TRACTCE                                                     VARCHAR\n"}
+,{"stream_name":"stdout","time":18.988661347,"data":"4          NAMELSAD                                                     VARCHAR\n"}
+,{"stream_name":"stdout","time":18.988664277,"data":"5             ALAND                                                      BIGINT\n"}
+,{"stream_name":"stdout","time":18.988667267,"data":"6         pop_total                                                      BIGINT\n"}
+,{"stream_name":"stdout","time":18.988670327,"data":"7         pop_urban                                                      BIGINT\n"}
+,{"stream_name":"stdout","time":18.988673117,"data":"8         pop_rural                                                      BIGINT\n"}
+,{"stream_name":"stdout","time":18.988675857,"data":"9         pct_urban                                                      DOUBLE\n"}
+,{"stream_name":"stdout","time":18.988678637,"data":"10         ur_class                                                     VARCHAR\n"}
+,{"stream_name":"stdout","time":18.988681517,"data":"11  frac_inside_aoi                                                      DOUBLE\n"}
+,{"stream_name":"stdout","time":18.988684327,"data":"12             bbox  STRUCT(xmin DOUBLE, ymin DOUBLE, xmax DOUBLE, ymax DOUBLE)\n"}
+,{"stream_name":"stdout","time":18.988687307,"data":"13         geometry                                       GEOMETRY('OGC:CRS84')\n"}
+,{"stream_name":"stdout","time":19.782312781,"data":"[    5.7s] SCHEMA maricopa-az-strata-tract-table.parquet\n"}
+,{"stream_name":"stdout","time":19.785380938,"data":"                              column_name column_type\n"}
+,{"stream_name":"stdout","time":19.785419048,"data":"0                                   GEOID     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785424138,"data":"1                                 STATEFP     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785427908,"data":"2                                COUNTYFP     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785431168,"data":"3                                   ALAND      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785434338,"data":"4                               pop_total      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785437238,"data":"5                               pop_urban      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785440288,"data":"6                               pop_rural      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785443788,"data":"7                               pct_urban      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785447339,"data":"8                                ur_class     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785450948,"data":"9                         frac_inside_aoi      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785454459,"data":"10                            svi_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785457988,"data":"11                      svi_rank_universe     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785461148,"data":"12                            svi_overall      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785464228,"data":"13                      svi_socioeconomic      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785467788,"data":"14                          svi_household      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785486679,"data":"15                           svi_minority      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785488788,"data":"16                  svi_housing_transport      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785490768,"data":"17                                svi_pop      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785492688,"data":"18                               svi_year      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785494619,"data":"19                            cvi_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785497068,"data":"20                     cvi_xwalk_coverage      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785500128,"data":"21                            cvi_overall      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785503208,"data":"22                           cvi_baseline      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785505588,"data":"23                            cvi_climate      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785507648,"data":"24                    cvi_baseline_health      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785509648,"data":"25             cvi_baseline_socioeconomic      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785512538,"data":"26            cvi_baseline_infrastructure      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785515678,"data":"27               cvi_baseline_environment      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785519208,"data":"28                     cvi_climate_health      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785522528,"data":"29              cvi_climate_socioeconomic      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785525898,"data":"30             cvi_climate_extreme_events      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785529328,"data":"31                     cvi_source_vintage      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785533028,"data":"32                           ruca_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785536558,"data":"33                           ruca_primary      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785539888,"data":"34                      ruca_primary_desc     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785543288,"data":"35                         ruca_secondary      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785548578,"data":"36                       ruca_pop_density      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785552168,"data":"37                              ruca_year      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785556067999998,"data":"38                           rucc_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785559688,"data":"39                              rucc_2023      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785563148,"data":"40                              rucc_desc     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785566338,"data":"41                             rucc_metro     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785569388,"data":"42                              rucc_year      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785603158,"data":"43                           nchs_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785607528,"data":"44                              nchs_2013      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785610788,"data":"45                        nchs_2013_label     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785614228,"data":"46                              nchs_year      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785617918,"data":"47                             tribal_any     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785628038,"data":"48                             tribal_pct      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785631728,"data":"49                           tribal_legal     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785635318,"data":"50                       tribal_legal_pct      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785638858,"data":"51                     tribal_statistical     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785642388,"data":"52                        tribal_stat_pct      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785645928,"data":"53                           aiannh_geoid     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785649328,"data":"54                            aiannh_name     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785652488,"data":"55                            aiannh_kind     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785655758,"data":"56                           usdm_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785658758,"data":"57                       usdm_summer_dsci      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785661858,"data":"58                 usdm_summer_pct_d0plus      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785663858,"data":"59                 usdm_summer_pct_d2plus      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785665838,"data":"60                       usdm_winter_dsci      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785667778,"data":"61                 usdm_winter_pct_d0plus      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785669718,"data":"62                 usdm_winter_pct_d2plus      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785671648,"data":"63                          usdm_year_min      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785674158,"data":"64                          usdm_year_max      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785677368,"data":"65                           usfs_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785680728,"data":"66                           usfs_BP_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785684268,"data":"67                          usfs_CFL_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785687658,"data":"68                         usfs_CRPS_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785691098,"data":"69                          usfs_RPS_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785694668,"data":"70                          usfs_WHP_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785698118,"data":"71                     usfs_Exposure_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785701627999998,"data":"72                        usfs_FLEP4_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785705118,"data":"73                        usfs_FLEP8_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785709268,"data":"74             usfs_CWiRRZ_majority_label     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785712768,"data":"75       usfs_CWiRRZ_majority_zone4_label     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785716298,"data":"76                 usfs_BuildingCount_sum      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785719758,"data":"77                usfs_BuildingCover_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785723368,"data":"78              usfs_BuildingDensity_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785726948,"data":"79                       usfs_HUCount_sum      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785730478,"data":"80                        usfs_HUDen_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785738968,"data":"81                   usfs_HUExposure_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785742578,"data":"82                     usfs_HUImpact_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785746198,"data":"83                       usfs_HURisk_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785749718,"data":"84                      usfs_PopCount_sum      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785753308,"data":"85                       usfs_PopDen_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785757108,"data":"86                           usfs_edition     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785760178,"data":"87                            usfs_extent     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785763488,"data":"88                           epht_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785765488,"data":"89                  epht_heat_days_summer      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785767438,"data":"90                  epht_heat_days_annual      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785770088,"data":"91                epht_heat_events_summer      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785773118,"data":"92                         epht_threshold     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785776678,"data":"93                            epht_metric     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785779838,"data":"94                          epht_year_min      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785783318,"data":"95                          epht_year_max      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785787068,"data":"96                     carbonplan_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785790408,"data":"97                   carbonplan_buildings      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785793988,"data":"98                carbonplan_bp_2011_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785797588,"data":"99              carbonplan_bp_2011_median      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785800628,"data":"100               carbonplan_bp_2047_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785804228,"data":"101                  carbonplan_crps_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785807818,"data":"102              carbonplan_rps_2011_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785811328,"data":"103            carbonplan_rps_2011_median      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785814808,"data":"104              carbonplan_rps_2047_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785818308,"data":"105                    carbonplan_version     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785821908,"data":"106                          usgs_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785825008,"data":"107    usgs_wildland_fire_burned_pct_area      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785828598,"data":"108         usgs_wildfire_burned_pct_area      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785832138,"data":"109          usgs_wildfire_pct_area_2plus      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785895148,"data":"110       usgs_prescribed_burned_pct_area      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785900378,"data":"111   usgs_wildfire_return_interval_years      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785905298,"data":"112  usgs_wildfire_fires_per_burned_pixel      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785908868,"data":"113                usgs_first_year_burned      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785918198,"data":"114                 usgs_last_year_burned      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785921888,"data":"115            usgs_years_since_last_fire      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785925388,"data":"116                    usgs_wildfire_ever     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785928968,"data":"117                     usgs_record_start      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785932468,"data":"118                       usgs_record_end      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785935968,"data":"119                          mtbs_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785939508,"data":"120         mtbs_wildfire_burned_pct_land      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785942968,"data":"121              mtbs_wildfire_burned_km2      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785946518,"data":"122                   mtbs_wildfire_fires     INTEGER\n"}
+,{"stream_name":"stdout","time":19.785949498,"data":"123               mtbs_wildfire_last_year      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785952528,"data":"124                    mtbs_wildfire_ever     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785954518,"data":"125             mtbs_years_since_wildfire      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785956458,"data":"126       mtbs_prescribed_burned_pct_land      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785959448,"data":"127                         mtbs_year_min      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785962958,"data":"128                         mtbs_year_max      BIGINT\n"}
+,{"stream_name":"stdout","time":19.785966578,"data":"129                   mtbs_size_threshold     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.785970108,"data":"130                          nifc_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785973038,"data":"131         nifc_wildfire_burned_pct_land      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785976268,"data":"132              nifc_wildfire_burned_km2      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785979608,"data":"133                   nifc_wildfire_fires     INTEGER\n"}
+,{"stream_name":"stdout","time":19.785983518,"data":"134               nifc_wildfire_last_year      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785986958,"data":"135                    nifc_wildfire_ever     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.785990438,"data":"136             nifc_years_since_wildfire      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.785994118,"data":"137       nifc_prescribed_burned_pct_land      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786002238000002,"data":"138           nifc_wildfire_fires_history     INTEGER\n"}
+,{"stream_name":"stdout","time":19.786005808,"data":"139             nifc_wildfire_fires_wfigs     INTEGER\n"}
+,{"stream_name":"stdout","time":19.786009478,"data":"140                         nifc_year_min      BIGINT\n"}
+,{"stream_name":"stdout","time":19.786012758,"data":"141                         nifc_year_max      BIGINT\n"}
+,{"stream_name":"stdout","time":19.786016288,"data":"142                           fod_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786019828,"data":"143                             fod_fires     INTEGER\n"}
+,{"stream_name":"stdout","time":19.786023398,"data":"144                     fod_acres_ignited      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786026988,"data":"145                  fod_ignition_density      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786030518,"data":"146                       fod_human_fires     INTEGER\n"}
+,{"stream_name":"stdout","time":19.786038638,"data":"147                     fod_natural_fires     INTEGER\n"}
+,{"stream_name":"stdout","time":19.786042258,"data":"148                       fod_large_fires     INTEGER\n"}
+,{"stream_name":"stdout","time":19.786045778,"data":"149                       fod_human_share      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786049578,"data":"150            fod_human_share_classified      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786052748,"data":"151               fod_cause_unknown_share      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786055128,"data":"152                    fod_last_fire_year      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786057088,"data":"153                fod_largest_fire_acres      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786059618,"data":"154                              fod_ever     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786062828,"data":"155                          fod_year_min      BIGINT\n"}
+,{"stream_name":"stdout","time":19.786066298,"data":"156                          fod_year_max      BIGINT\n"}
+,{"stream_name":"stdout","time":19.786069798,"data":"157                           fod_edition     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.786073488,"data":"158                          ghcn_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786077128,"data":"159                ghcn_stations_in_tract     INTEGER\n"}
+,{"stream_name":"stdout","time":19.786080688,"data":"160           ghcn_temp_stations_in_tract     INTEGER\n"}
+,{"stream_name":"stdout","time":19.786084268,"data":"161                   ghcn_any_nearest_km      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786088048,"data":"162                  ghcn_temp_nearest_km      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786091258,"data":"163                  ghcn_prcp_nearest_km      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786094868,"data":"164                  ghcn_any_within_25km     INTEGER\n"}
+,{"stream_name":"stdout","time":19.786098418,"data":"165                 ghcn_temp_within_25km     INTEGER\n"}
+,{"stream_name":"stdout","time":19.786101948,"data":"166                ghcn_anchor_unreliable     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786105488,"data":"167                         ghcn_year_min      BIGINT\n"}
+,{"stream_name":"stdout","time":19.786109108,"data":"168                         ghcn_year_max      BIGINT\n"}
+,{"stream_name":"stdout","time":19.786112728,"data":"169                          cdcw_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786116248,"data":"170                            cdcw_grain     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.786119868,"data":"171                      hwd_maxtemp_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786123358,"data":"172                    hwd_maxtemp_change      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786126868,"data":"173     hwd_maxtemp_trend_days_per_decade      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786130448,"data":"174                   hwd_maxtemp_trend_p      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786133978,"data":"175             hwd_maxtemp_never_defined     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786137518,"data":"176                    hwd_heatindex_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786140778,"data":"177                  hwd_heatindex_change      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786143848000002,"data":"178   hwd_heatindex_trend_days_per_decade      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786147048,"data":"179                 hwd_heatindex_trend_p      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786154418,"data":"180           hwd_heatindex_never_defined     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786157488,"data":"181                   hwd_heatstress_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786160818,"data":"182                 hwd_heatstress_change      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786164408,"data":"183  hwd_heatstress_trend_days_per_decade      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786168078,"data":"184                hwd_heatstress_trend_p      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786171558,"data":"185          hwd_heatstress_never_defined     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786174998,"data":"186                     cdcw_window_start      BIGINT\n"}
+,{"stream_name":"stdout","time":19.786178468,"data":"187                       cdcw_window_end      BIGINT\n"}
+,{"stream_name":"stdout","time":19.786182128,"data":"188                          gehe_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786185508,"data":"189                    gehe_coverage_frac      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786188488,"data":"190                 gehe_wbgt28_days_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786191298,"data":"191               gehe_wbgt28_days_change      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786194248,"data":"192         gehe_wbgt28_trend_days_per_yr      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786197708,"data":"193                 gehe_wbgt30_days_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786200398,"data":"194               gehe_wbgt30_days_change      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786203348,"data":"195         gehe_wbgt30_trend_days_per_yr      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786206068,"data":"196                 gehe_wbgt32_days_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786208748,"data":"197               gehe_wbgt32_days_change      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786211758,"data":"198         gehe_wbgt32_trend_days_per_yr      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786214508,"data":"199                     gehe_record_start      BIGINT\n"}
+,{"stream_name":"stdout","time":19.786217358000002,"data":"200                       gehe_record_end      BIGINT\n"}
+,{"stream_name":"stdout","time":19.786220268,"data":"201                           uhe_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786223268,"data":"202                         uhe_city_name     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.786226308,"data":"203                      uhe_city_country     VARCHAR\n"}
+,{"stream_name":"stdout","time":19.786229217,"data":"204                      uhe_overlap_frac      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786232357,"data":"205             uhe_wbgtmax28_days_per_yr      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786235337,"data":"206             uhe_wbgtmax30_days_per_yr      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786238617,"data":"207              uhe_himax461_days_per_yr      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786241277,"data":"208                          pmdi_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786244057,"data":"209                             pmdi_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786246837,"data":"210                      pmdi_summer_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786249568,"data":"211                      pmdi_winter_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786252477,"data":"212                pmdi_pct_months_severe      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786259668,"data":"213                pmdi_recent_percentile      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786262648,"data":"214                   pmdi_mean_1895_2025      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786265718,"data":"215                           spi_covered     BOOLEAN\n"}
+,{"stream_name":"stdout","time":19.786268578,"data":"216                       spi_calibration      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786271518,"data":"217                            spi03_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786274278,"data":"218                     spi03_summer_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786277158,"data":"219                     spi03_winter_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786280298,"data":"220                   spi03_pct_months_d2      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786283318,"data":"221                            spi12_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786286168,"data":"222                     spi12_summer_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786288878,"data":"223                     spi12_winter_mean      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786291758,"data":"224                   spi12_pct_months_d2      DOUBLE\n"}
+,{"stream_name":"stdout","time":19.786294648,"data":"225              drought_gov_window_start      BIGINT\n"}
+,{"stream_name":"stdout","time":19.786298398,"data":"226                drought_gov_window_end      BIGINT\n"}
+,{"stream_name":"stdout","time":23.929897282,"data":"         GEOID transport_gap building_gap poi_gap coverage_gap_score\n"}
+,{"stream_name":"stdout","time":23.929939472,"data":"0  04001944902           0.0          0.0     0.0                0.0\n"}
+,{"stream_name":"stdout","time":23.929944332,"data":"1  04001945100           0.0          0.0     0.0                0.0\n"}
+,{"stream_name":"stdout","time":23.929947672,"data":"2  04001970201           0.0          0.0     0.0                0.0\n"}
+,{"stream_name":"stdout","time":23.929950602,"data":"3  04001970202           0.0          0.0     0.0                0.0\n"}
+,{"stream_name":"stdout","time":23.929953322,"data":"4  04001970300           0.0          0.0     0.0                0.0\n"}
+,{"stream_name":"stdout","time":23.929956112,"data":"[    9.8s] === region maricopa-az\n"}
+,{"stream_name":"stdout","time":28.510451519,"data":"[   14.4s] sub (1593, 5) strata (1593, 227) acs (1593, 6)\n"}
+,{"stream_name":"stdout","time":30.691553827,"data":"[   16.6s] tracts 1593\n"}
+,{"stream_name":"stdout","time":37.910224384,"data":"[   23.8s] pois joined 300044 of 300046\n"}
+,{"stream_name":"stdout","time":66.975293763,"data":"[   52.9s] roads done 7077\n"}
+,{"stream_name":"stdout","time":78.123904514,"data":"[   64.0s] hwy segs 121431\n"}
+,{"stream_name":"stdout","time":90.702957945,"data":"[   76.6s] buildings loaded 2908224\n"}
+,{"stream_name":"stdout","time":118.657290201,"data":"[  104.6s] buildings done\n"}
+,{"stream_name":"stdout","time":118.660701239,"data":"[  104.6s] === region northern-ca\n"}
+,{"stream_name":"stdout","time":123.771780438,"data":"[  109.7s] sub (591, 5) strata (591, 227) acs (591, 6)\n"}
+,{"stream_name":"stdout","time":126.371663488,"data":"[  112.3s] tracts 591\n"}
+,{"stream_name":"stdout","time":132.76804311,"data":"[  118.7s] pois joined 116895 of 116897\n"}
+,{"stream_name":"stdout","time":162.309657568,"data":"[  148.2s] roads done 2752\n"}
+,{"stream_name":"stdout","time":172.122763832,"data":"[  158.0s] hwy segs 54882\n"}
+,{"stream_name":"stdout","time":178.889132595,"data":"[  164.8s] buildings loaded 1164724\n"}
+,{"stream_name":"stdout","time":196.569427895,"data":"[  182.5s] buildings done\n"}
+,{"stream_name":"stdout","time":196.572965285,"data":"[  182.5s] === region eastern-ok\n"}
+,{"stream_name":"stdout","time":201.586178821,"data":"[  187.5s] sub (1192, 5) strata (1192, 227) acs (1192, 6)\n"}
+,{"stream_name":"stdout","time":204.24080119,"data":"[  190.1s] tracts 1192\n"}
+,{"stream_name":"stdout","time":210.165229079,"data":"[  196.1s] pois joined 207369 of 207369\n"}
+,{"stream_name":"stdout","time":237.685432031,"data":"[  223.6s] roads done 5708\n"}
+,{"stream_name":"stdout","time":248.344176978,"data":"[  234.2s] hwy segs 112838\n"}
+,{"stream_name":"stdout","time":261.945528351,"data":"[  247.8s] buildings loaded 2551694\n"}
+,{"stream_name":"stdout","time":277.958914981,"data":"[  263.9s] buildings done\n"}
+,{"stream_name":"stdout","time":277.962559569,"data":"[  263.9s] === region south-central-tx\n"}
+,{"stream_name":"stdout","time":284.498264287,"data":"[  270.4s] sub (6003, 5) strata (6010, 227) acs (6010, 6)\n"}
+,{"stream_name":"stdout","time":288.350456206,"data":"[  274.2s] tracts 6010\n"}
+,{"stream_name":"stdout","time":305.832726281,"data":"[  291.7s] pois joined 1300290 of 1300334\n"}
+,{"stream_name":"stdout","time":388.772075746,"data":"[  374.7s] roads done 28243\n"}
+,{"stream_name":"stdout","time":414.148215565,"data":"[  400.0s] hwy segs 658056\n"}
+,{"stream_name":"stdout","time":456.693337937,"data":"[  442.6s] buildings loaded 11463801\n"}
+,{"stream_name":"stdout","time":522.972907874,"data":"[  508.9s] buildings done\n"}
+,{"stream_name":"stdout","time":522.989926134,"data":"[  508.9s] ALL DONE\n"}
+,{"stream_name":"stdout","time":522.990320713,"data":"['south-central-tx-strata.parquet', 'maricopa-az-sample-submission.csv', 'maricopa-az-tracts.parquet', 'maricopa-az-acs.parquet', 'northern-ca-strata.parquet', 'maricopa-az-bldg-tract.parquet', 'eastern-ok-hwy-seg-tract.parquet', 'south-central-tx-sample-submission.csv', 'south-central-tx-pois-tract.parquet', 'northern-ca-sample-submission.csv', 'south-central-tx-acs.parquet', 'south-central-tx-bldg-tract.parquet', 'maricopa-az-roads-tract.parquet', 'maricopa-az-hwy-seg-tract.parquet', 'eastern-ok-roads-tract.parquet', 'south-central-tx-tracts.parquet', 'northern-ca-hwy-seg-tract.parquet', 'eastern-ok-strata.parquet', 'northern-ca-roads-tract.parquet', 'eastern-ok-sample-submission.csv', 'northern-ca-bldg-tract.parquet', 'maricopa-az-pois-tract.parquet', 'northern-ca-pois-tract.parquet', 'eastern-ok-bldg-tract.parquet', 'eastern-ok-tracts.parquet', 'south-central-tx-roads-tract.parquet', 'maricopa-az-strata.parquet', 'south-central-tx-hwy-seg-tract.parquet', 'eastern-ok-acs.parquet', 'northern-ca-tracts.parquet', 'northern-ca-acs.parquet', 'eastern-ok-pois-tract.parquet']\n"}
+,{"stream_name":"stderr","time":526.341796045,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":526.341834595,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":526.803145085,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":526.803190136,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":528.207675955,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":529.659395517,"data":"[NbConvertApp] Writing 299231 bytes to __results__.html\n"}
+]

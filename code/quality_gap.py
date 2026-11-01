@@ -6,7 +6,7 @@ Definitions: ML-only share = Microsoft ML footprints / all buildings; attribute 
 non-null subtype / all; multi-source share = n_multisrc / n; Cohen's d uses the pooled SD
 sqrt(((n1-1)s1^2+(n2-1)s2^2)/(n1+n2-2)); Welch t for unequal variances; tract means unless stated.
 """
-import sys, json, numpy as np, pandas as pd
+import sys, os, json, numpy as np, pandas as pd
 from math import erf, sqrt
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 B, OUT = sys.argv[1], sys.argv[2]; T24 = sys.argv[3] if len(sys.argv) > 3 else None
@@ -15,7 +15,9 @@ NAMES = {"maricopa-az": "Maricopa, AZ", "northern-ca": "Northern California", "e
 TR = pd.concat([pd.read_parquet(f"{B}/{r}-tracts.parquet").assign(region=r) for r in R]).drop_duplicates("GEOID").set_index("GEOID")
 ST = pd.concat([pd.read_parquet(f"{B}/{r}-strata.parquet") for r in R]).drop_duplicates("GEOID").set_index("GEOID").reindex(TR.index)
 AC = pd.concat([pd.read_parquet(f"{B}/{r}-acs.parquet") for r in R]).drop_duplicates("GEOID").set_index("GEOID").reindex(TR.index)
-b = pd.concat([pd.read_parquet(f"{B}/{r}-bldg-tract.parquet") for r in R]); g = b.groupby("GEOID")
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BL = B if os.path.exists(f"{B}/{R[0]}-bldg-tract.parquet") else f"{ROOT}/data/derived"
+b = pd.concat([pd.read_parquet(f"{BL}/{r}-bldg-tract.parquet") for r in R]); g = b.groupby("GEOID")
 D = pd.DataFrame({"n": g.n.sum(), "ml": b[b.src == "Microsoft ML Buildings"].groupby("GEOID").n.sum(),
                   "osm": b[b.src == "OpenStreetMap"].groupby("GEOID").n.sum(),
                   "attr": b[b.subtype.notna()].groupby("GEOID").n.sum(), "multi": g.n_multisrc.sum()}).reindex(TR.index).fillna(0)
@@ -27,12 +29,17 @@ D["rural"] = ST.ur_class == "Rural"; D["tribal"] = ST.tribal_statistical > 0
 D["wf"] = ST.usfs_Exposure_mean >= ST.usfs_Exposure_mean.quantile(.9); D["burned"] = ST.usgs_wildfire_ever == 1
 D["svi"] = ST.svi_overall >= 0.75; D["cvi"] = ST.cvi_overall >= ST.cvi_overall.quantile(.9)
 D["heat"] = ST.epht_heat_days_summer >= ST.epht_heat_days_summer.quantile(.9)
-P = pd.concat([pd.read_parquet(f"{B}/{r}-pois-tract.parquet") for r in R]); gp = P.groupby("GEOID")
-D["npoi"] = gp.size().reindex(D.index).fillna(0); D["conf"] = gp.confidence.mean().reindex(D.index)
-D["lowconf"] = gp.confidence.apply(lambda s: (s < 0.5).mean()).reindex(D.index)
-D["meta_share"] = gp.src.apply(lambda s: (s == "meta").mean()).reindex(D.index)
-FIRE = ["fire_department", "fire_protection_service"]
-D["has_fire"] = P[P.cat.isin(FIRE)].groupby("GEOID").size().reindex(D.index).fillna(0) > 0
+import os
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if os.path.exists(f"{B}/{R[0]}-pois-tract.parquet"):   # per-POI table from the feature kernel
+    P = pd.concat([pd.read_parquet(f"{B}/{r}-pois-tract.parquet") for r in R]); gp = P.groupby("GEOID")
+    PS = pd.DataFrame({"npoi": gp.size(), "conf": gp.confidence.mean(), "lowconf": gp.confidence.apply(lambda s: (s < 0.5).mean()),
+                       "meta_share": gp.src.apply(lambda s: (s == "meta").mean())})
+    PS["has_fire"] = P[P.cat.isin(["fire_department", "fire_protection_service"])].groupby("GEOID").size().reindex(PS.index).fillna(0) > 0
+else:                                                   # shipped per-tract summary of the same table
+    PS = pd.read_parquet(f"{ROOT}/data/derived/pois_tract_summary.parquet").set_index("GEOID")
+for c in ["npoi", "conf", "lowconf", "meta_share", "has_fire"]: D[c] = PS[c].reindex(D.index)
+D["npoi"] = D.npoi.fillna(0); D["has_fire"] = D.has_fire.fillna(False).astype(bool)
 
 def tt(x, y):
     x, y = x.dropna().astype(float), y.dropna().astype(float); n1, n2 = len(x), len(y)

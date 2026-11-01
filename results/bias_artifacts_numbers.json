@@ -49,7 +49,12 @@
   "artifact_share_of_diff": 0.1255522186540209
  },
  "c4_astar_public": 0.35436484037832083,
- "c4_astar_private": 0.28637518070202916,
+ "c4_scores": {
+  "t14_public": 0.069408591,
+  "c4_public": 0.06971171,
+  "t14_private": 0.069223432,
+  "c4_private": 0.069668792
+ },
  "boundary_artifact_under_model_flag": {
   "defined": 6269,
   "mean": 0.06146557571079049,

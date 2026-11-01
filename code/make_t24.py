@@ -1,5 +1,5 @@
 """Rebuild the final submission t24 from the scored vectors and their public scores.
-Usage: python make_t24.py <bundle_dir> <out_csv>
+Usage: python make_t24.py <out_csv> [<coefficients_csv>]
 Inputs (shipped): data/scored_vectors.parquet (GEOID, region, one column per scored submission),
                   data/scores.csv (name, Zindi id, public RMSE, private RMSE).
 Method (Part II, Sections 9-9.1): base = t23; for every other scored vector k, d_k = s_k - base,
@@ -12,7 +12,7 @@ submissions/t24_global.csv when that file is present.
 """
 import sys, os, numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
-B, OUT = sys.argv[1], sys.argv[2]
+OUT = sys.argv[1]; COEF = sys.argv[2] if len(sys.argv) > 2 else os.path.splitext(OUT)[0] + "_coefficients.csv"
 V = pd.read_parquet(f"{ROOT}/data/scored_vectors.parquet"); S = pd.read_csv(f"{ROOT}/data/scores.csv")
 S = S[S.has_vector & (S.name != "t24_global")].drop_duplicates("name")
 SC = dict(zip(S.name, S.public))
@@ -40,7 +40,7 @@ pred = np.sqrt(M[r] + 2 * a @ gk + a @ Gk @ a); print(f"predicted public RMSE {p
 v = np.clip(mat[:, r] + (mat[:, ks] - mat[:, [r]]) @ a, 0, 1)
 pd.DataFrame({"GEOID": V.GEOID, "coverage_gap_score": v}).to_csv(OUT, index=False)
 coef = pd.DataFrame({"direction": [names[i] for i in ks], "coefficient": a, "sigma": sig, "q": q[ks], "g": gk})
-coef.to_csv(f"{ROOT}/results/t24_coefficients.csv", index=False)
+coef.to_csv(COEF, index=False); print("directions:", len(coef))
 ref = f"{ROOT}/submissions/t24_global.csv"
 if os.path.exists(ref):
     t = pd.read_csv(ref, dtype={"GEOID": str}).set_index("GEOID").coverage_gap_score.reindex(V.GEOID).values
