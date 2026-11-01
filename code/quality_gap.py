@@ -52,22 +52,30 @@ print(f"<5% OSM: {nc.sum()} tracts ({100*nc.mean():.1f}%), pop {D['pop'][nc].sum
 # figures
 cx = np.array([(x["xmin"]+x["xmax"])/2 for x in TR.bbox]); cy = np.array([(x["ymin"]+x["ymax"])/2 for x in TR.bbox])
 fig, axs = plt.subplots(2, 2, figsize=(11, 9))
+NAMES = {"maricopa-az": "Maricopa, AZ", "northern-ca": "Northern California", "eastern-ok": "Eastern Oklahoma", "south-central-tx": "South-Central Texas"}
 for ax, r in zip(axs.ravel(), R):
     mm = (D.region == r).values
     sc = ax.scatter(cx[mm], cy[mm], c=D.ml_share.values[mm], cmap="RdYlBu_r", vmin=0, vmax=1, s=6, linewidths=0)
-    ax.set_title(f"{r} — mean ML-only share {np.nanmean(D.ml_share.values[mm]):.2f}", fontsize=10)
+    ax.set_title(f"{NAMES[r]} — mean ML-only share {np.nanmean(D.ml_share.values[mm]):.2f}", fontsize=10)
     ax.set_aspect(1/np.cos(np.deg2rad(np.nanmean(cy[mm])))); ax.set_xticks([]); ax.set_yticks([])
-fig.colorbar(sc, ax=axs, shrink=0.6, label="Share of Overture buildings that are Microsoft ML footprints")
+fig.colorbar(sc, ax=axs, shrink=0.6, label="Share of Overture buildings that are Microsoft ML footprints (no attributes)")
+fig.suptitle("Where open building coverage is machine-only (tract bbox centres)", fontsize=12)
 fig.savefig(f"{OUT}/fig_ml_share_map.png", dpi=130, bbox_inches="tight"); plt.close()
 grp = ["rural", "tribal", "wf", "burned", "cvi", "svi"]
 fig, ax = plt.subplots(figsize=(9, 4.2)); x = np.arange(len(grp)); w = 0.38
 ax.bar(x-w/2, [D.loc[D[k], "ml_share"].mean() for k in grp], w, label="in group", color="#c0392b")
 ax.bar(x+w/2, [D.loc[~D[k], "ml_share"].mean() for k in grp], w, label="rest", color="#7f8c8d")
-ax.set_xticks(x); ax.set_xticklabels(grp); ax.set_ylim(0, 1); ax.legend(); ax.set_ylabel("Mean share of ML-only buildings")
+lab = ["Rural", "Tribal stat. area", "Wildfire exposure top 10%", "Ever burned (USGS)", "CVI top 10%", "SVI ≥ 0.75"]
+ax.set_xticks(x); ax.set_xticklabels(lab, rotation=15, ha="right", fontsize=9); ax.set_ylim(0, 1); ax.legend(); ax.set_ylabel("Mean share of ML-only buildings")
+for i, k in enumerate(grp):
+    ax.text(i-w/2, D.loc[D[k], "ml_share"].mean()+0.02, f"{D.loc[D[k], 'ml_share'].mean():.2f}", ha="center", fontsize=8)
+    ax.text(i+w/2, D.loc[~D[k], "ml_share"].mean()+0.02, f"{D.loc[~D[k], 'ml_share'].mean():.2f}", ha="center", fontsize=8)
+ax.set_title(f"Machine-only building coverage by scorecard stratum (4 scored regions, n = {len(D):,} tracts)", fontsize=10)
 fig.savefig(f"{OUT}/fig_ml_share_groups.png", dpi=130, bbox_inches="tight"); plt.close()
 ok = D.n > 50
 fig, ax = plt.subplots(figsize=(6.5, 4.5))
 ax.scatter(D.attr_share[ok], D.count_cov.clip(0, 2)[ok], s=4, alpha=0.3, c=np.where(D.rural[ok], "#c0392b", "#2c3e50"), linewidths=0)
-ax.axhline(1, color="k", lw=0.6, ls="--"); ax.set_xlabel("Share of buildings with any attribute"); ax.set_ylabel("Overture / USFS building count"); ax.set_ylim(0, 2)
+ax.axhline(1, color="k", lw=0.6, ls="--"); ax.set_xlabel("Share of buildings with any attribute (type/class)"); ax.set_ylabel("Count coverage: Overture / USFS building count"); ax.set_ylim(0, 2)
+ax.set_title("Count-complete but content-empty (red = rural tracts)", fontsize=10)
 fig.savefig(f"{OUT}/fig_count_vs_content.png", dpi=130, bbox_inches="tight"); plt.close()
 D.to_parquet(f"{OUT}/quality_gap_tracts.parquet")
